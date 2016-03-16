@@ -20,16 +20,44 @@
 </head>
 <body>
 
-	<div class="jumbotron" style="background-image: url('Datenbanken-II/Aufgabe1/images/fussball.jpg')">
+	<div class="jumbotron" style="background-image: url('/Aufgabe1/images/fussball.jpg')">
   		<div class="container">
     	<h2>Stimmen Sie ab welcher Fußballverein der beste ist!</h2>
     	<h3> <p class="text-muted">Geben Sie Ihre Stimme damit Ihr Favourit auf Nummer 1 steht! </h3>
   		</div>
 	</div>
 
+	<div class="row">
+		<div class="container">
+			<form class="form-horizontal" role="form">
+				<div class="form-group">
+		    		<label  class="control-label col-sm-2" for="verein">Dein Liebingsverein: </label>
+		    		<div class="col-sm-10">          
+		        		<select required>
+						  <option value="volvo">Bayern München</option>
+						  <option value="saab">Bayer Leverkusen</option>
+						  <option value="mercedes">Schalke 04</option>
+						  <option value="audi">Borussia Dortmund</option>
+						  <option value="audi">Dynamo Dresden</option>
+						  <option value="audi">Energie Cottbus</option>
+						  <option value="audi">Alemannia Aachen</option>
+						</select>
+		      		</div>
+	  			</div>
+
+		  		<div class="form-group">        
+		      		<div class="col-sm-offset-2 col-sm-10">
+		        		<button type="submit" class="btn btn-default">Submit</button>
+		      		</div>
+		    	</div>
+		
+			</form>	
+		</div>
+	</div>
+
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.js"></script>
 
 </body>
 </html>
