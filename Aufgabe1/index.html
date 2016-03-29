@@ -22,7 +22,7 @@
 
 	<div class="jumbotron" style="background-image: url('/Datenbanken-II/Aufgabe1/images/fussball.jpg')">
   		<div class="container">
-    	<h2>Stimmen Sie ab welcher Fußballverein der beste ist!</h2>
+    	<h2>Stimmen Sie ab welcher Fußballverein der Beste ist!</h2>
     	<h3> <p class="text-muted" style="color: #fff">Geben Sie Ihre Stimme damit Ihr Favourit auf Nummer 1 steht! </h3>
   		</div>
 	</div>
@@ -31,26 +31,27 @@
 		<div class="container">
 			
 		<div class="col-sm-6 col-sm-offset-3">
-			<form class="form-horizontal" role="form">
+			<form class="form-horizontal" role="form" method="post" action="club.php">
 				<div class="form-group">
 		    		<label class="control-label col-sm-4" for="verein">Dein Liebingsverein: </label>
 		    		<div class="col-sm-8">          
-		        		<select required>
-						  <option value="volvo">Bayern München</option>
-						  <option value="saab">Bayer Leverkusen</option>
-						  <option value="mercedes">Schalke 04</option>
-						  <option value="audi">Borussia Dortmund</option>
-						  <option value="audi">Dynamo Dresden</option>
-						  <option value="audi">Energie Cottbus</option>
-						  <option value="audi">Alemannia Aachen</option>
+		        		<select required name="club">
+						  <option value="bm">Bayern München</option>
+						  <option value="bl">Bayer Leverkusen</option>
+						  <option value="schalke">Schalke 04</option>
+						  <option value="bd">Borussia Dortmund</option>
+						  <option value="dynamo">Dynamo Dresden</option>
+						  <option value="energie">Energie Cottbus</option>
+						  <option value="alemania aachen">Alemannia Aachen</option>
+						  <option value="other"> Ein ganz anderer Verein! </option>
 						</select>
 		      		</div>
 	  			</div>
 
-	  			<div class="form-group">
+	  			<div class="form-group" style="padding-top: 10px;">
 		    		<label class="control-label col-sm-4" for="verein">Dein Lieblingsverein war nicht in der Liste?</label>
 		    		<div class="col-sm-8">          
-		        		<input type="text"></input>
+		        		<input type="text" name="otherVerein"></input>
 		      		</div>
 	  			</div>
 
