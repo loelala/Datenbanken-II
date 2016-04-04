@@ -1,8 +1,8 @@
 <?php
 
-$host = "localhost";
-$user = 'user';
-$password = '12345';
+$host = 'localhost';
+$user = 'root';
+$password = '';
 
 //$str = file_get_contents('Datenbanken-II/Aufgabe1/test-db-connection/dbInformation.json');
 
@@ -19,8 +19,8 @@ $password = '12345';
 //}
 
 $con=mysql_connect($host,$user,$password) or die ("Zugriff nicht möglich");
-echo $con;
-if(!$con) {
+
+if($con) {
   echo '<h1>Connected to MySQL</h1>';
     // if connected, then select data from db 
     $db = mysql_select_db('Aufgabe1') or die ("Die Datenbankauswahl ist nicht möglich!");
