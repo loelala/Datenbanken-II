@@ -24,11 +24,14 @@ if($con) {
   echo '<h1>Connected to MySQL</h1>';
     // if connected, then select data from db 
     $db = mysql_select_db('Aufgabe1') or die ("Die Datenbankauswahl ist nicht möglich!");
-    $abfrage = 'SELECT COUNT(*) FROM Vereine';
+    $abfrage = 'SELECT * FROM Vereine';
     $query = mysql_query($abfrage) or die ("Datenbankabfrage war nicht möglich!");
     
     while($zeile = mysql_fetch_row($query)) {
-        echo $zeile[0];
+        for($j = 0; $j < mysql_num_fields($query); $j++) {
+            echo $zeile[$j]."|";
+        }
+        echo '<BR>';
     }
     
     
