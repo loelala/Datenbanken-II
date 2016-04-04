@@ -17,7 +17,9 @@ if($con) {
     $query = mysql_query($abfrage) or die ("Datenbankabfrage war nicht möglich!");
     
     while($row = mysql_fetch_row($query)) {
-            echo '<option value="'.$row['Vereinsname']'">' . $row['Vereinsname']            .'</option>';
+        
+        echo '<option>' 
+            . $row['Vereinsname'] .'</option>';
         }
     }
     
