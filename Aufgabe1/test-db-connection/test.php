@@ -7,7 +7,7 @@ $json = json_decode($str, true);
 
 echo '<pre>' . print_r($json, true) . '<pre>'
 
-foreach( $json as $key => $val) {
+foreach($json as $key => $val) {
     if (is_array($val)) {
         echo "$key: \n ";
     } else {
