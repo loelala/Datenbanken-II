@@ -1,11 +1,11 @@
 <?php
 
-$host="localhost";
-$str=file_get_contents('dbInformation.json');
+$host = "localhost";
+$str = file_get_contents('dbInformation.json');
 
 $json = json_decode($str, true);
 
-echo '<pre>' . print_r($json, true) . '<pre>'
+echo '<pre>' . print_r($json, true) . '<pre>';
 
 foreach($json as $key => $val) {
     if (is_array($val)) {
