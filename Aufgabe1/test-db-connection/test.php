@@ -3,6 +3,7 @@
 $host = "localhost";
 $user = 'user';
 $password = '12345';
+
 //$str = file_get_contents('Datenbanken-II/Aufgabe1/test-db-connection/dbInformation.json');
 
 //$json = json_decode($str, true);
@@ -21,8 +22,12 @@ $con=mysql_connect($host,$user,$password);
 if(!$con) {
   echo '<h1>Connected to MySQL</h1>';
     // if connected, then select data from db 
-    //$db=mysql_select_db("YOUR_DATABASE_NAME",$con);
-    //$query=mysql_query("YOUR_MYSQL_QUERY",$db);
+    $db=mysql_select_db("Aufgabe1",$con);
+    $query=mysql_query("select count(*) from Vereine",$db);
+    
+    echo 'Einträge: ' $query; 
+    
+    
 } else {
    echo '<h1>MySQL Server is not connected</h1>';
 }
