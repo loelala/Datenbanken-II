@@ -18,7 +18,8 @@ $password = '12345';
 //    }
 //}
 
-$con=mysql_connect($host,$user,$password);
+$con=mysql_connect($host,$user,$password) or die ("Zugriff nicht möglich");
+echo $con;
 if(!$con) {
   echo '<h1>Connected to MySQL</h1>';
     // if connected, then select data from db 
