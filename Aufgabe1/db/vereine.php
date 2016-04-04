@@ -20,7 +20,7 @@ if($con) {
         
         echo '<option>' 
             . $row['Vereinsname'] .'</option>';
-        }
+    
     }
     
 } else {
