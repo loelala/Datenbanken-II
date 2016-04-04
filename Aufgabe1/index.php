@@ -39,7 +39,7 @@
 
                         <!--Begin: select field-->
                         <div class="col-sm-8">
-                            <?php include('./Datenbanken-II/Aufgabe1/db/vereine.php'); ?>
+                            <?php include('./db/vereine.php'); ?>
                         </div>
                         <!--End: Select-field-->
                     </div>
