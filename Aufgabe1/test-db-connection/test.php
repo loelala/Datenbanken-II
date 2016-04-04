@@ -1,7 +1,7 @@
 <?php
 
 $host = "localhost";
-$str = file_get_contents('dbInformation.json');
+$str = file_get_contents('http://localhost/Datenbanken-II/Aufgabe1/test-db-connection/dbInformation.json');
 
 $json = json_decode($str, true);
 
