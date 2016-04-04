@@ -24,7 +24,7 @@ if($con) {
   echo '<h1>Connected to MySQL</h1>';
     // if connected, then select data from db 
     $db = mysql_select_db('Aufgabe1') or die ("Die Datenbankauswahl ist nicht möglich!");
-    $abfrage = 'SELECT * FROM Vereine';
+    $abfrage = 'SELECT COUNT(*) FROM Vereine';
     $query = mysql_query($abfrage) or die ("Datenbankabfrage war nicht möglich!");
     
     echo $query;
