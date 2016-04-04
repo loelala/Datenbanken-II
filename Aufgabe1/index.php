@@ -37,10 +37,11 @@
                     <div class="form-group">
                         <label class="control-label col-sm-4" for="verein">Dein Liebingsverein: </label>
 
-                        <!--Here starts select field-->
+                        <!--Begin: select field-->
                         <div class="col-sm-8">
-                            <?php include('Datenbanken-II/Aufgabe1/db/vereine.php'); ?>
+                            <?php include('./Datenbanken-II/Aufgabe1/db/vereine.php'); ?>
                         </div>
+                        <!--End: Select-field-->
                     </div>
 
                     <div class="form-group" style="padding-top: 10px;">
