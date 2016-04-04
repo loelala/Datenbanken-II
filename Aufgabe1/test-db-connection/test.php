@@ -22,10 +22,11 @@ $con=mysql_connect($host,$user,$password);
 if(!$con) {
   echo '<h1>Connected to MySQL</h1>';
     // if connected, then select data from db 
-    $db=mysql_select_db("Aufgabe1",$con);
+    $db=mysql_select_db("Aufgabe1",$con)
         or die ("Die Datenbankauswahl ist nicht möglich!");
     $abfrage = "SELECT * FROM Vereine";
-    $query = mysql_query($abfrage,$db) or die ("Datenbankabfrage war nicht möglich!");
+    $query = mysql_query($abfrage,$db) 
+        or die ("Datenbankabfrage war nicht möglich!");
     
     echo 'Einträge: ' $query; 
     
