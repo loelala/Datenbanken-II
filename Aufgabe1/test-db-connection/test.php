@@ -27,7 +27,9 @@ if($con) {
     $abfrage = 'SELECT COUNT(*) FROM Vereine';
     $query = mysql_query($abfrage) or die ("Datenbankabfrage war nicht möglich!");
     
-    echo $query;
+    while($zeile = mysql_fetch_row($query)) {
+        echo $zeile[0];
+    }
     
     
 } else {
