@@ -18,9 +18,7 @@ if($con) {
     
     while($row = mysql_fetch_row($query)) {
         for ($j=0; $j < mysql_num_fields($query); $j++) {
-            echo '<option>' 
-            . $row[$j] .'</option>';
-    
+            echo '<option value="'$row[$j]'">' . $row[$j] .'</option>';
         }
         
     }
