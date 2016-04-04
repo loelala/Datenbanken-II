@@ -26,7 +26,7 @@ if(!$con) {
     $abfrage = 'SELECT * FROM Vereine';
     $query = mysql_query($abfrage,$db) or die ("Datenbankabfrage war nicht möglich!");
     
-    echo 'Einträge: ' $query; 
+    echo $query;
     
     
 } else {
