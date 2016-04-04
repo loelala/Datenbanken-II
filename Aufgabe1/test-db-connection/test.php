@@ -1,7 +1,7 @@
 <?php
 
 $host="localhost";
-$json="dbInformation"
+$json=file_get_contents('dbInformation.json');
 
 $jsonIterator = new RecursiveIteratorIterator(new RecursiveArrayIterator(json_decode($json, TRUE)), RecursiveIteratorIterator::SELF_FIRST);
 
