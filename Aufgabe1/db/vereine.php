@@ -17,7 +17,7 @@ if($con) {
     $query = mysql_query($abfrage) or die ("Datenbankabfrage war nicht möglich!");
     
     while($row = mysql_fetch_row($query)) {
-            echo '<option value="'.$row['Vereinsname']'">' . $row['Vereinsname'] . "</option>";
+            echo '<option value="'.$row['Vereinsname']'">' . $row['Vereinsname']            .'</option>';
         }
     }
     
@@ -25,6 +25,6 @@ if($con) {
    echo '<h1>MySQL Server is not connected</h1>';
 }
 
-echo "</select>"
+echo '</select>';
 
 ?>
