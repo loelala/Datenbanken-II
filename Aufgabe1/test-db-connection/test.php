@@ -1,11 +1,13 @@
 <?php
 
 $host="localhost";
-$json=file_get_contents('dbInformation.json');
+$str=file_get_contents('dbInformation.json');
 
-$jsonIterator = new RecursiveIteratorIterator(new RecursiveArrayIterator(json_decode($json, TRUE)), RecursiveIteratorIterator::SELF_FIRST);
+$json = json_decode($str, true);
 
-foreach( $jsonIterator as $key => $val) {
+echo '<pre>' . print_r($json, true) . '<pre>'
+
+foreach( $json as $key => $val) {
     if (is_array($val)) {
         echo "$key: \n ";
     } else {
