@@ -2,16 +2,6 @@
 
 echo "<select required name="club">";
 
-						  <option value="bm">Bayern München</option>
-						  <option value="bl">Bayer Leverkusen</option>
-						  <option value="schalke">Schalke 04</option>
-						  <option value="bd">Borussia Dortmund</option>
-						  <option value="dynamo">Dynamo Dresden</option>
-						  <option value="energie">Energie Cottbus</option>
-						  <option value="alemania aachen">Alemannia Aachen</option>
-						  <option value="other"> Ein ganz anderer Verein! </option>
-						</select>
-
 $host = 'localhost';
 $user = 'root';
 $password = '';
@@ -30,10 +20,6 @@ if($con) {
             echo '<option value="'.$row['Vereinsname']'">' . $row['Vereinsname'] . "</option>";
         }
     }
-    
-    
-   
-    
     
 } else {
    echo '<h1>MySQL Server is not connected</h1>';
