@@ -17,10 +17,12 @@ if($con) {
     $query = mysql_query($abfrage) or die ("Datenbankabfrage war nicht möglich!");
     
     while($row = mysql_fetch_row($query)) {
-        
-        echo '<option>' 
-            . $row['Vereinsname'] .'</option>';
+        for ($j=0; $j < mysql_num_fields($query); $j++) {
+            echo '<option>' 
+            . $row[$j] .'</option>';
     
+        }
+        
     }
     
 } else {
