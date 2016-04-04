@@ -8,7 +8,7 @@ if ($selectOption == 'other') {
                         <div class="col-sm-8">
                             <input type="text" name="otherVerein"></input>
                         </div>
-                    </div>'
+                    </div>';
 }
 
 ?>
