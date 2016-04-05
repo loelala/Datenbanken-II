@@ -1,6 +1,6 @@
 <?php
 
-echo '<select required name="club">';
+echo '<select name="club">';
 
 $host = 'localhost';
 $user = 'root';

@@ -33,7 +33,7 @@
         <div class="container">
 
             <div class="col-sm-6 col-sm-offset-3">
-                <form class="form-horizontal" role="form" method="post" action="club.php">
+                <form class="form-horizontal" role="form" method="post">
                     <div class="form-group">
                         <label class="control-label col-sm-4" for="verein">Dein Liebingsverein: </label>
 
