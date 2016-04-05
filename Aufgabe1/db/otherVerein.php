@@ -21,7 +21,7 @@ if(isset($_POST['club'])){
 $selected_val = $_POST['club'];  // Storing Selected Value In Variable
 echo "You have selected :" .$selected_val;  // Displaying Selected Value
     if ($selected_val == 'other') {
-        echo '<input name="otherClub"></input>'
+        echo '<input name="otherClub"></input>';
     }   
 }
 ?>
