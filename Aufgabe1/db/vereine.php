@@ -1,6 +1,6 @@
 <?php
 header('Content-Type: text/html; charset=utf-8');
-echo '<select name="club">';
+echo '<select name="club" style="width: 100%;">';
 
 $host = 'localhost';
 $user = 'root';
