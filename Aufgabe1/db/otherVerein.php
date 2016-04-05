@@ -22,7 +22,7 @@ if(isset($_POST['club'])){
     $selected_val = $_POST['club'];  
     
     if ($selected_val == 'other') {
-        echo '<label class="control-label col-sm-4" for="ohterVerein">Gib deinen Verein ein:</label>'
+        echo '<label class="control-label col-sm-4" for="ohterVerein">Gib deinen Verein ein:</label>';
         echo '<div class="col-sm-8"><input name="otherClub"></input></div>';
     }
     else {
