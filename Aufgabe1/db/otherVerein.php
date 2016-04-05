@@ -1,5 +1,5 @@
 <?php
-
+header('Content-Type: text/html; charset=utf-8');
 //$option = isset($_POST['club']) ? $_POST['club'] : false;
 //   if ($option) {
 //      echo htmlentities($_POST['club'], ENT_QUOTES, "UTF-8");
@@ -20,5 +20,8 @@
 if(isset($_POST['club'])){
 $selected_val = $_POST['club'];  // Storing Selected Value In Variable
 echo "You have selected :" .$selected_val;  // Displaying Selected Value
+    if ($selected_val == 'other') {
+        echo '<input name="otherClub"></input>'
+    }   
 }
 ?>

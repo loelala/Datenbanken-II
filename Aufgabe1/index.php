@@ -33,6 +33,10 @@
         <div class="container">
 
             <div class="col-sm-6 col-sm-offset-3">
+
+
+
+                <!--Begin: Form -->
                 <form class="form-horizontal" role="form" method="post">
                     <div class="form-group">
                         <label class="control-label col-sm-4" for="verein">Dein Liebingsverein: </label>
@@ -42,6 +46,9 @@
                             <?php include('./db/vereine.php'); ?>
                         </div>
                         <!--End: Select-field-->
+
+
+
                     </div>
 
                     <?php include('./db/otherVerein.php') ?>
@@ -53,6 +60,10 @@
                         </div>
 
                 </form>
+                <!--End: Form -->
+
+
+
             </div>
         </div>
     </div>
