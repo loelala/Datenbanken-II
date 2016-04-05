@@ -26,7 +26,7 @@ if(isset($_POST['club'])){
     }
     else {
         // Displaying Selected Value
-        echo '<p> Danke dass du für $selected_val gestimmt hast</p>';  
+        echo '<p> Danke dass du für ' .$selected_val. ' gestimmt hast</p>';  
     }
 }
 ?>
