@@ -1,12 +1,12 @@
 <?php
 
-$option = isset($_POST['club']) ? $_POST['club'] : false;
-   if ($option) {
-      echo htmlentities($_POST['club'], ENT_QUOTES, "UTF-8");
-   } else {
-     echo "task option is required";
-     exit; 
-   }
+//$option = isset($_POST['club']) ? $_POST['club'] : false;
+//   if ($option) {
+//      echo htmlentities($_POST['club'], ENT_QUOTES, "UTF-8");
+//   } else {
+//     echo "task option is required";
+//     exit; 
+//   }
 
 if ($_POST['club'] == 'other') {
     echo '<div class="form-group" style="padding-top: 10px;">
