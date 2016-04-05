@@ -18,10 +18,15 @@ header('Content-Type: text/html; charset=utf-8');
 //}
 
 if(isset($_POST['club'])){
-$selected_val = $_POST['club'];  // Storing Selected Value In Variable
-echo "You have selected :" .$selected_val;  // Displaying Selected Value
+    // Storing Selected Value In Variable
+    $selected_val = $_POST['club'];  
+    
     if ($selected_val == 'other') {
         echo '<input name="otherClub"></input>';
-    }   
+    }
+    else {
+        // Displaying Selected Value
+        echo '<p> Danke dass du für $selected_val gestimmt hast</p>';  
+    }
 }
 ?>
