@@ -50,14 +50,16 @@
 
 
                     </div>
+                    <div class="form-group">
+                        <?php include('./db/otherVerein.php') ?>
+                    </div>
 
-                    <?php include('./db/otherVerein.php') ?>
 
-                        <div class="form-group">
-                            <div class="col-sm-offset-4 col-sm-8">
-                                <button type="submit" class="btn btn-default">Submit</button>
-                            </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-4 col-sm-8">
+                            <button type="submit" class="btn btn-default">Submit</button>
                         </div>
+                    </div>
 
                 </form>
                 <!--End: Form -->

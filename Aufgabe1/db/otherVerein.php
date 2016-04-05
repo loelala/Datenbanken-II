@@ -22,11 +22,12 @@ if(isset($_POST['club'])){
     $selected_val = $_POST['club'];  
     
     if ($selected_val == 'other') {
-        echo '<input name="otherClub"></input>';
+        echo '<label class="control-label col-sm-4" for="ohterVerein">Gib deinen Verein ein:</label>'
+        echo '<div class="col-sm-8"><input name="otherClub"></input></div>';
     }
     else {
         // Displaying Selected Value
-        echo '<p> Danke dass du für ' .$selected_val. ' gestimmt hast</p>';  
+        echo '<p> Danke dass du für <strong>' .$selected_val. '</strong> gestimmt hast</p>';  
     }
 }
 ?>
