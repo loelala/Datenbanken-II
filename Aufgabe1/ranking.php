@@ -31,30 +31,19 @@
 
     <div class="row">
         <div class="container">
-
             <ul class="nav nav-tabs">
-                <li role="presentation" class="active"><a href="/">Home</a></li>
+                <li role="presentation"><a href="/">Home</a></li>
                 <li role="presentation"><a href="abstimmung.php
                     ">Abstimmen</a></li>
-                <li role="presentation"><a href="ranking.php">Ranking</a></li>
+                <li role="presentation" class="active"><a href="ranking.php">Ranking</a></li>
             </ul>
+            <div class="col-sm-6 col-sm-offset-3">
 
-            <div class="col-md-12 col-lg-12">
-                <h1>
-                    Diese Seite bietet Ihnen die Möglichkeit ihren liebsten Fußsballverein auszuwählen! 
-                </h1>
+                <?php include('./db/getRanking.php'); ?>
+
             </div>
-
         </div>
     </div>
-
-
-
-
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="/Datenbanken-II/Aufgabe1/jquery.js"></script>
-
 </body>
 
 </html>

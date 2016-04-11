@@ -33,28 +33,43 @@
         <div class="container">
 
             <ul class="nav nav-tabs">
-                <li role="presentation" class="active"><a href="/">Home</a></li>
-                <li role="presentation"><a href="abstimmung.php
+                <li role="presentation"><a href="/">Home</a></li>
+                <li role="presentation" class="active"><a href="abstimmung.php
                     ">Abstimmen</a></li>
                 <li role="presentation"><a href="ranking.php">Ranking</a></li>
             </ul>
+            <div class="col-sm-6 col-sm-offset-3">
+                <!--Begin: Form -->
+                <form class="form-horizontal" role="form" method="post">
+                    <div class="form-group">
+                        <label class="control-label col-sm-4" for="verein">Dein Liebingsverein: </label>
 
-            <div class="col-md-12 col-lg-12">
-                <h1>
-                    Diese Seite bietet Ihnen die Möglichkeit ihren liebsten Fußsballverein auszuwählen! 
-                </h1>
+                        <!--Begin: select field-->
+                        <div class="col-sm-8">
+                            <?php include('./db/vereine.php'); ?>
+                        </div>
+                        <!--End: Select-field-->
+
+                    </div>
+                    <div class="form-group">
+                        <?php include('./db/otherVerein.php') ?>
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-4 col-sm-8">
+                            <button type="submit" class="btn btn-default">Submit</button>
+                        </div>
+                    </div>
+
+                </form>
+                <!--End: Form -->
+
+
+
             </div>
-
         </div>
     </div>
-
-
-
-
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="/Datenbanken-II/Aufgabe1/jquery.js"></script>
-
 </body>
 
 </html>
