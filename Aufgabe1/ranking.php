@@ -32,12 +32,13 @@
     <div class="row">
         <div class="container">
             <ul class="nav nav-tabs">
-                <li role="presentation"><a href="/">Home</a></li>
+                <li role="presentation"><a href="index.php">Home</a></li>
                 <li role="presentation"><a href="abstimmung.php
                     ">Abstimmen</a></li>
                 <li role="presentation" class="active"><a href="ranking.php">Ranking</a></li>
+                <li role="presentation"><a href="newsletter.php">Newsletter</a></li>
             </ul>
-            <div class="col-sm-6 col-sm-offset-3">
+            <div class="col-sm-6 col-sm-offset-3" style="margin-top: 30px">
 
                 <?php include('./db/getRanking.php'); ?>
 

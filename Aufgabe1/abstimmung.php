@@ -33,27 +33,32 @@
         <div class="container">
 
             <ul class="nav nav-tabs">
-                <li role="presentation"><a href="/">Home</a></li>
+                <li role="presentation"><a href="index.php">Home</a></li>
                 <li role="presentation" class="active"><a href="abstimmung.php
                     ">Abstimmen</a></li>
                 <li role="presentation"><a href="ranking.php">Ranking</a></li>
+                <li role="presentation"><a href="newsletter.php">Newsletter</a></li>
             </ul>
+
             <div class="col-sm-6 col-sm-offset-3">
+
                 <!--Begin: Form -->
-                <form class="form-horizontal" role="form" method="post">
+                <form class="form-horizontal" role="form" method="post" style="margin-top: 30px">
+
+                    <!--Begin: select field-->
                     <div class="form-group">
                         <label class="control-label col-sm-4" for="verein">Dein Liebingsverein: </label>
-
-                        <!--Begin: select field-->
                         <div class="col-sm-8">
-                            <?php include('./db/vereine.php'); ?>
+                            <?php include('./db/fillSelectField.php'); ?>
                         </div>
-                        <!--End: Select-field-->
-
                     </div>
+                    <!--End: Select-field-->
+
+                    <!--Begin: input field-->
                     <div class="form-group">
                         <?php include('./db/otherVerein.php') ?>
                     </div>
+                    <!--Begin: input field-->
 
 
                     <div class="form-group">

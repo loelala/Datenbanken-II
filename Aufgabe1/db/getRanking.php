@@ -4,13 +4,14 @@
         $user = 'root';
         $password = '';
         $con = mysql_connect($host,$user,$password) or die ("Zugriff verweigert!");
-         $db = mysql_select_db('Aufgabe1') or die ("Die Datenbankauswahl ist nicht möglich!");
+        $db = mysql_select_db('Aufgabe1') or die ("Die Datenbankauswahl ist nicht möglich!");
 mysql_set_charset('utf8', $con);
         $sql = "SELECT * FROM `Abstimmung`";
-        $sql2 = "SELECT SUM(Stimmen) FROM Abstimmung";
-        
+        $sql2 = "SELECT SUM(Stimmen) FROM `Abstimmung`";
         $ergebnis = mysql_query($sql, $con);
         $sum = mysql_query($sql2, $con);
+        $stimme = 0;
+        $ergebnisSumme = mysql_fetch_row($sum)[0];
 
         echo "<table class='table table-striped'>
                     <thead>
@@ -21,19 +22,19 @@ mysql_set_charset('utf8', $con);
                       </tr>
                     </thead>
                     <tbody>";
-         
+
         while($row = mysql_fetch_row($ergebnis)) {
-            echo "<tr>";  
+            echo "<tr>";
             for ($j=0; $j < mysql_num_fields($ergebnis); $j++) {
-                echo "<td> $row[$j] </td>";
-                if (mysql_num_fields($ergebnis)-1 == $j) {
-                    $stimme = intval($row[$j]);
-                    echo $stimme; 
+                $verein = $row[$j];
+                echo "<td> $verein </td>";
+                if ($j == 1) {
+                  $valueStimme = intval($verein);
                 }
             }
-            $anteil = number_format(($stimme / $sum) * 100, 2) .'%'; 
+            $anteil = number_format(($valueStimme / intval($ergebnisSumme)) * 100, 2) .'%';
             echo "<td>$anteil</td>";
-            echo "</tr>"; 
+            echo "</tr>";
             }
         echo "</tbody>
                 </table>";

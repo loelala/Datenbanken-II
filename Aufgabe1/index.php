@@ -33,15 +33,16 @@
         <div class="container">
 
             <ul class="nav nav-tabs">
-                <li role="presentation" class="active"><a href="/">Home</a></li>
+                <li role="presentation" class="active"><a href="index.php">Home</a></li>
                 <li role="presentation"><a href="abstimmung.php
                     ">Abstimmen</a></li>
                 <li role="presentation"><a href="ranking.php">Ranking</a></li>
+                <li role="presentation"><a href="newsletter.php">Newsletter</a></li>
             </ul>
 
             <div class="col-md-12 col-lg-12">
                 <h1>
-                    Diese Seite bietet Ihnen die Möglichkeit ihren liebsten Fußsballverein auszuwählen! 
+                    Diese Seite bietet Ihnen die Möglichkeit ihren liebsten Fußsballverein auszuwählen!
                 </h1>
             </div>
 
