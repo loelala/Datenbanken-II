@@ -1,5 +1,5 @@
 <?php
-echo '<select name="liga" multiple>';
+echo '<select name="liga[]" multiple>';
 
 $host = 'localhost';
 $user = 'root';

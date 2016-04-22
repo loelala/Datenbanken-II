@@ -10,10 +10,12 @@
     <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="bootstrap.css">
 
     <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <link rel="stylesheet" href="bootstrap-theme.css">
+
+    <link rel="stylesheet" href="style.css">
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
@@ -34,76 +36,86 @@
 
             <ul class="nav nav-tabs">
                 <li role="presentation"><a href="index.php">Home</a></li>
-                <li role="presentation" class="active"><a href="abstimmung.php
+                <li role="presentation"><a href="abstimmung.php
                     ">Abstimmen</a></li>
                 <li role="presentation"><a href="ranking.php">Ranking</a></li>
-                <li role="presentation"><a href="newsletter.php">Newsletter</a></li>
+                <li role="presentation" class="active"><a href="newsletter.php">Newsletter</a></li>
+                <li role="presentation"><a href="sendNewsletter.php">Versenden der Newsletter</a></li>
+            </ul>
             </ul>
 
-            <div class="col-md-6 col-md-offset-3">
+            <div class="col-md-12">
 
+              <div class="col-sm-offset-2">
+                <h3>Hier können Sie sich für unseren Newsletter anmelden.</h3>
+                <h4>Für jeden Fußballfan ein Muss! </h4>
+                <p> Wir teilen Ihnen wöchentlich die aktuellsten Themen rund um Ihre ausgewählten Ligen mit. </p>
+
+                <img src="football_newsletter.jpg" class="img-rounded" alt="football">
+
+              </div>
               <!--Begin: Form -->
-              <form class="form-horizontal" role="form" method="post"  style="margin-top: 30px">
+              <form class="form-horizontal col-sm-offset-2" role="form" method="post"  style="margin-top: 30px">
 
                   <div class="form-group">
-                      <label class="control-label col-sm-4" for="name">Name </label>
-                      <div class="col-sm-8">
-                          <input type="text" name="name" />
+                      <label class="control-label" for="name">Name </label>
+                      <div class="col-sm-12">
+                          <input type="text" name="name" required/>
                       </div>
                   </div>
 
                   <div class="form-group">
-                      <label class="control-label col-sm-4" for="emailaddress">Emailaddresse </label>
-                      <div class="col-sm-8">
-                          <input type="text" name="emailaddress" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" />
+                      <label class="control-label" for="emailaddress">Emailaddresse </label>
+                      <div class="col-sm-12">
+                          <input type="text" name="emailaddress" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required />
                       </div>
                   </div>
 
                   <div class="form-group">
-                      <label class="control-label col-sm-4" for="strasse">Straße</label>
-                      <div class="col-sm-8">
-                          <input type="text" name="strasse" />
+                      <label class="control-label" for="strasse">Straße</label>
+                      <div class="col-sm-12">
+                          <input type="text" name="strasse" required />
                       </div>
                   </div>
 
                   <div class="form-group">
-                    <label class="control-label col-sm-4" for="hausnummer">Hausnummer</label>
-                    <div class="col-sm-8">
-                        <input type="text" name="hausnummer" />
+                    <label class="control-label" for="hausnummer">Hausnummer</label>
+                    <div class="col-sm-12">
+                        <input type="number" name="hausnummer" required />
                     </div>
                   </div>
 
                   <div class="form-group">
-                      <label class="control-label col-sm-4" for="ort">Ort</label>
-                      <div class="col-sm-8">
-                          <input type="text" name="ort" />
-                      </div>
-                  </div>
-
-                  <div class="form-goup">
-                      <label class="control-label col-sm-4" for="plz">PLZ</label>
-                      <div class="col-sm-8">
-                          <input type="number" name="plz" />
+                      <label class="control-label" for="ort">Ort</label>
+                      <div class="col-sm-12">
+                          <input type="text" name="ort" required/>
                       </div>
                   </div>
 
                   <div class="form-group">
-                    <label class="control-label col-sm-4" for="mitglied">Hast du eine Mitgliedschaft bei einerm Fußballverein? </label>
-                    <div class="col-sm-8">
-                      <input type="radio" name="mitglied" value="1"> Ja ich bin Mitglied bei einem Verein</input><br>
-                      <input type="radio" name="mitglied" value="0"> Nein hab ich nicht </input>
+                      <label class="control-label" for="plz">PLZ</label>
+                      <div class="col-sm-12">
+                          <input type="text" name="plz" pattern="[0-9]*" required></input>
+                      </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="control-label" for="mitglied">Hast du eine Mitgliedschaft bei einerm Fußballverein? </label>
+                    <div class="col-sm-12">
+                      <input type="radio" name="mitglied" value="1" required> Ja ich bin Mitglied bei einem Verein</input><br>
+                      <input type="radio" name="mitglied" value="0" required> Nein hab ich nicht </input>
                     </div>
                   </div>
 
                   <div class="form-group">
-                    <label class="control-label col-sm-4">Dein Liebingsverein: </label>
-                    <div class="col-sm-8">
+                    <label class="control-label">Dein Liebingsverein: </label>
+                    <div class="col-sm-12" >
                       <?php include('./db/fillSelectFieldNewsletter.php'); ?>
                     </div>
                   </div>
 
                   <div class="form-group">
-                      <div class="col-sm-offset-4 col-sm-8">
+                      <div>
                           <button type="submit" class="btn btn-default">Submit</button>
                       </div>
                   </div>

@@ -21,15 +21,31 @@
         $insertIntoUser = "INSERT INTO `User`(`Name`, `Email`, `Vereinsmitglied`, `Strasse`, `Hausnummer`, `Plz`, `Ort`) VALUES ('$name','$email','$mitglied','$strasse','$hausnummer','$plz','$ort')";
 
         if (mysql_query($insertIntoUser, $con)) {
-          if (is_array($liga)) {
-            foreach ($liga as $ligaEntry) {
-              $insertIntoZuteilungArray = "INSERT INTO `ZuteilungMail`(`Email`, `Spielklasse`) VALUES ('$email','$ligaEntry')";
-              mysql_query($insertIntoZuteilungArray, $con);
+          // if (is_array($liga)) {
+            // echo "<script type='text/javascript'>alert('Ist ein Array');</script>";
+            if (count($liga) > 1) {
+              for ($i = 0; $i < count($liga); $i++) {
+                $insertIntoZuteilungArray = "INSERT INTO `ZuteilungMail`(`Email`, `Spielklasse`) VALUES ('$email','$liga[$i]')";
+                if (mysql_query($insertIntoZuteilungArray, $con)) {
+                  // alles ok
+                } else {
+                  echo '<div class="well well-lg col-sm-12">
+
+                  <p> Es ist leider ein Fehler aufgetreten! Versuchen Sie es später nochmal </p>
+
+                  </div>';
+                }
+              }
+            } else {
+              $insertIntoZuteilung = "INSERT INTO `ZuteilungMail`(`Email`, `Spielklasse`) VALUES ('$email','$liga')";
+              mysql_query($insertIntoZuteilung, $con);
             }
-          } else {
-            $insertIntoZuteilung = "INSERT INTO `ZuteilungMail`(`Email`, `Spielklasse`) VALUES ('$email','$liga')";
-            mysql_query($insertIntoZuteilung, $con);
-          }
+            
+          // } else {
+          //   echo "<script type='text/javascript'>alert('Ist KEIN Array'" . $liga .   ");</script>";
+          //   $insertIntoZuteilung = "INSERT INTO `ZuteilungMail`(`Email`, `Spielklasse`) VALUES ('$email','$liga')";
+          //   mysql_query($insertIntoZuteilung, $con);
+          // }
         } else {
           echo '<div class="well well-lg col-sm-12">
 
