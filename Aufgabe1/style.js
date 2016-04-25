@@ -8,5 +8,17 @@ const {width, height, scale} = Dimensions.get("window"),
 export default StyleSheet.create({
     "a": {
         "color": "#4CAF50"
+    },
+    "h1": {
+        "fontFamily": "'Poiret One', cursive"
+    },
+    "h2": {
+        "fontFamily": "'Poiret One', cursive"
+    },
+    "h3": {
+        "fontFamily": "'Poiret One', cursive"
+    },
+    "p": {
+        "fontFamily": "'Poiret One', cursive"
     }
 });

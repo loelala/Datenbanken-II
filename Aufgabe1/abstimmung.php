@@ -8,6 +8,7 @@
     <!-- Custom Fonts -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Poiret+One|Dosis' rel='stylesheet' type='text/css'>
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="bootstrap.css">
@@ -20,7 +21,7 @@
 
 </head>
 
-<body>
+<body style="font-family: 'Dosis', sans-serif;">
 
     <div class="jumbotron" style="background-image: url('/Datenbanken-II/Aufgabe1/images/fussball.jpg')">
         <div class="container">
