@@ -1,0 +1,23 @@
+insert into Table (Select Kunde_V1_Konten_Liste
+                    From Kunde_v1
+                    Where Kunde_v1_Nr = 2345)
+            ( Select REF (w) from Konto w
+              Where w.Konto_Nr = 120768
+              Or w.Konto_Nr = 348973
+            );
+
+insert into Table (Select Kunde_V1_Konten_Liste
+                    From Kunde_v1
+                    Where Kunde_v1_Nr = 7654)
+            ( Select REF (w) from Konto w
+              Where w.Konto_Nr = 987654
+            );
+            
+insert into Table (Select Kunde_V1_Konten_Liste
+                    From Kunde_v1
+                    Where Kunde_v1_Nr = 8764)
+            ( Select REF (w) from Konto w
+              Where w.Konto_Nr = 745363
+              Or w.Konto_Nr = 678453
+              Or w.Konto_Nr = 348973
+            );

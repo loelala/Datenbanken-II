@@ -1,0 +1,16 @@
+insert into Table (Select ZWEIGSTELLE_V1_Konten_Liste
+                    From Zweigstelle_v1
+                    Where ZWEIGSTELLE_V1_Name = 'Bachdorf')
+            ( Select REF (w) from Konto w
+              Where w.Konto_Nr = 120768
+              Or w.Konto_Nr = 348973
+              Or w.Konto_Nr = 678453
+            );
+            
+insert into Table (Select ZWEIGSTELLE_V1_Konten_Liste
+                    From Zweigstelle_v1
+                    Where ZWEIGSTELLE_V1_Name = 'Riedering')
+            ( Select REF (w) from Konto w
+              Where w.Konto_Nr = 987654
+              Or w.Konto_Nr = 745363
+            );
