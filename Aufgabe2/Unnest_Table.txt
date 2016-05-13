@@ -1,0 +1,27 @@
+
+select deref(w).Adresse_Ort from (select Zweigstelle_v1_Adresse w from Zweigstelle_v1);
+
+
+select  w.Zweigstelle_v1_Name, 
+        deref(w.ZWEIGSTELLE_V1_ADRESSE).Adresse_Strasse,
+        deref(w.ZWEIGSTELLE_V1_ADRESSE).Adresse_Haus_Nr,
+        deref(w.ZWEIGSTELLE_V1_ADRESSE).Adresse_PLZ,
+        deref(w.ZWEIGSTELLE_V1_ADRESSE).Adresse_Ort,
+        v.*
+        from Zweigstelle_v1 w, table (w.Zweigstelle_v1_Konten_Liste) v;
+
+Select  NameZweigstelle,
+        StrasseZweigstelle,
+        HausNrZweigstelle,
+        PLZZweigstelle,
+        OrtZweigstelle,
+        deref(COLUMN_VALUE).Konto_Nr,
+        deref(COLUMN_VALUE).Konto_Art,
+        deref(COLUMN_VALUE).Konto_Stand
+from (select  w.Zweigstelle_v1_Name as NameZweigstelle, 
+        deref(w.ZWEIGSTELLE_V1_ADRESSE).Adresse_Strasse as StrasseZweigstelle,
+        deref(w.ZWEIGSTELLE_V1_ADRESSE).Adresse_Haus_Nr as HausNrZweigstelle,
+        deref(w.ZWEIGSTELLE_V1_ADRESSE).Adresse_PLZ as PLZZweigstelle,
+        deref(w.ZWEIGSTELLE_V1_ADRESSE).Adresse_Ort as OrtZweigstelle,
+        v.*
+        from Zweigstelle_v1 w, table (w.Zweigstelle_v1_Konten_Liste) v );
