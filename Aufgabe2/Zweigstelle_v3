@@ -1,0 +1,15 @@
+create or replace TYPE KONTOT_v3 under KontoT
+  ( Konto_v3_Kunden_Liste KUNDENLISTET_V2) NOT FINAL;
+
+create or replace TYPE KONTENLISTET_v3 as Table of KontoT_v3;
+
+create or replace TYPE ZWEIGSTELLET_V3 as Object
+  ( ZWEIGSTELLE_V3_Name VARCHAR2(50),
+    ZWEIGSTELLE_V3_Leiter VARCHAR2(50),
+    ZWEIGSTELLE_V3_Adresse REF AdresseT,
+    ZWEIGSTELLE_V3_Konten_Liste KONTENLISTET_V3) NOT FINAL;
+
+create table ZWEIGSTELLE_V3 of ZWEIGSTELLET_V3
+nested table ZWEIGSTELLE_V3_Konten_Liste
+store as ZWEIGSTELLE_V3_Konten_Liste_nt
+(nested table Konto_v3_Kunden_Liste store as Konto_v3_Kunden_Liste_nt);

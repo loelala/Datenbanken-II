@@ -1,0 +1,39 @@
+insert into Zweigstelle_v3 values (
+        ZweigstelleT_v3(  'Bachdorf',
+                          '1768',
+                          (Select REF (w) from Adresse w
+                          where w.Adresse_plz = 99999),
+                          KontenListeT_v3( KontoT_v3( 'S',
+                                                      120768,
+                                                      234.56,
+                                                      KUNDENLISTET_V2()),
+                                            KontoT_v3( 'G',
+                                                      348973,
+                                                      12567.56,
+                                                      KUNDENLISTET_V2()),
+                                            KontoT_v3( 'G',
+                                                      678453,
+                                                      -456.78,
+                                                      KUNDENLISTET_V2())
+                                            )
+                          )
+        
+        );
+        
+insert into Zweigstelle_v3 values (
+        ZweigstelleT_v3(  'Riedering',
+                          '9823',
+                          (Select REF (w) from Adresse w
+                          where w.Adresse_plz = 88888),
+                          KontenListeT_v3( KontoT_v3( 'G',
+                                                      987654,
+                                                      789.65,
+                                                      KUNDENLISTET_V2()),
+                                            KontoT_v3( 'S',
+                                                      745363,
+                                                      -23.67,
+                                                      KUNDENLISTET_V2())
+                                            )
+                          )
+        
+        );
