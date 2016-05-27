@@ -1,0 +1,80 @@
+create type CS_PhoneList_T as table of VARCHAR2(10);
+
+create type CS_Company_Base_Type_T as Object ( Type_Desc VARCHAR2(40)) NOT FINAL;
+
+create type CS_Area_List_T as table of VARCHAR2(3);
+                                            
+create type CS_Company_Type1_T under CS_Company_Base_Type_T ( Area CS_Area_List_T);
+
+create type CS_Company_Type2_T under CS_Company_Base_Type_T ( Market VARCHAR2(6));
+
+create type CS_Shareholder_T as Object ( 
+                                        Shareholder_Id NUMBER(3,0),
+                                        Shareholder_Name VARCHAR2(30),
+                                        Shareholder_Address ADRESSET,
+                                        Shareholder_Phone VARCHAR(10));
+                                        
+
+create type CS_Share_T as Object ( Shareholder REF CS_Shareholder_T,
+                                Amount NUMBER(9,2));
+
+create type CS_Share_List_T as table of CS_Share_T;
+                                    
+create type CS_ManagingEmployee_T as Object (
+                                    Manag_ID NUMBER(4,0),
+                                    Manag_Name VARCHAR2(30),
+                                    Manag_Address ADRESSET,
+                                    Manag_Phone VARCHAR(10));
+
+create type CS_Director_T as Object (
+                                      ManagEmployee REF CS_ManagingEmployee_T,
+                                      Bonus BINARY_DOUBLE);
+
+create type CS_Manager_T as Object (
+                                      Manag_Employee REF CS_ManagingEmployee_T,
+                                      Manag_Type VARCHAR2(40),
+                                      Manag_YearlySalary NUMBER(8,2));
+
+create type CS_Director_List_T as Table of CS_Director_T;
+
+create type CS_Manager_List_T as Table of CS_Manager_T;
+
+create type CS_Employee_T as Object ( 
+                                      Emp_ID VARCHAR2(6),
+                                      Emp_Name VARCHAR(30),
+                                      Emp_Addresse ADRESSET,
+                                      Emp_Phone VARCHAR2(10));
+
+create type CS_Employees_List_T as table of REF CS_Employee_T;
+
+
+create type CS_Department_T as Object ( 
+                                        Dept_ID NUMBER(2,0),
+                                        Dept_Name VARCHAR2(20),
+                                        Dept_Head REF CS_Employee_T);
+
+create type CS_CS_Department_List_T as table of CS_Department_T;
+                               
+
+create or replace type CS_Store_T as Object (  
+                                  Store_ID VARCHAR2(3),
+                                  Store_Location VARCHAR2(25),
+                                  Store_Address ADRESSET,
+                                  Store_Phone VARCHAR(10),
+                                  Store_Manager REF CS_Employee_T,
+                                  Store_Employees CS_Employees_List_T,
+                                  Store_Departments CS_CS_Department_List_T);
+                                  
+create type CS_Store_List_T as Table of CS_Store_T;
+
+create type CS_Company_T as Object (
+                                  Comp_ID NUMBER(1,0),
+                                  Comp_Name VARCHAR2(50),
+                                  Comp_Address ADRESSET,
+                                  Comp_Phone CS_PhoneList_T,
+                                  Comp_Fax CS_PhoneList_T,
+                                  Comp_Type CS_Company_Base_Type_T,
+                                  Comp_Shares CS_Share_List_T,
+                                  Comp_Directors CS_Director_List_T,
+                                  Comp_Managers CS_Manager_List_T,
+                                  Comp_Stores CS_Store_List_T);
