@@ -1,13 +1,5 @@
 create type CS_PhoneList_T as table of VARCHAR2(10);
 
-create type CS_Company_Base_Type_T as Object ( Type_Desc VARCHAR2(40)) NOT FINAL;
-
-create type CS_Area_List_T as table of VARCHAR2(3);
-                                            
-create type CS_Company_Type1_T under CS_Company_Base_Type_T ( Area CS_Area_List_T);
-
-create type CS_Company_Type2_T under CS_Company_Base_Type_T ( Market VARCHAR2(6));
-
 create type CS_Shareholder_T as Object ( 
                                         Shareholder_Id NUMBER(3,0),
                                         Shareholder_Name VARCHAR2(30),
@@ -76,18 +68,6 @@ create or replace type CS_Store_T as Object (
                                   
 create type CS_Store_List_T as Table of CS_Store_T;
 
-create type CS_Company_T as Object (
-                                  Comp_ID NUMBER(1,0),
-                                  Comp_Name VARCHAR2(50),
-                                  Comp_Address ADRESSET,
-                                  Comp_Phone CS_PhoneList_T,
-                                  Comp_Fax CS_PhoneList_T,
-                                  Comp_Type CS_Company_Base_Type_T,
-                                  Comp_Shares CS_Share_List_T,
-                                  Comp_Directors CS_Director_List_T,
-                                  Comp_Managers CS_Manager_List_T,
-                                  Comp_Stores CS_Store_List_T);
-
 create type CS_Maker_T as Object (
                                    Maker_ID VARCHAR2(3),
                                    Maker_Name VARCHAR2(30),
@@ -119,4 +99,60 @@ create or replace type CS_Transaction_T as Object (
                                           Trans_Customer REF CS_Customer_T,
                                           Trans_Item REF CS_Item_T);
 
+create type CS_Stock_T as Object (
+                                    Stock_Item REF CS_Item_T,
+                                    Stock_Inventory NUMBER(10,0));
+
+create type CS_Stock_List_T as table of CS_Stock_T;
+
+create or replace type CS_Store_T as Object (  
+                                  Store_ID VARCHAR2(3),
+                                  Store_Location VARCHAR2(25),
+                                  Store_Address ADRESSET,
+                                  Store_Phone VARCHAR(10),
+                                  Store_Manager REF CS_Employee_T,
+                                  Store_Employees CS_Employees_List_T,
+                                  Store_Departments CS_Department_List_T
+				  Store_Stock CS_Stock_List_T);
+
+create type CS_Company_Base_Type_T as Object ( Type_Desc VARCHAR2(40)) NOT FINAL;
+
+create type CS_Area_List_T as table of VARCHAR2(3);
+                                            
+create type CS_Company_Type1_T under CS_Company_Base_Type_T ( Area CS_Area_List_T);
+
+create type CS_Company_Type2_T under CS_Company_Base_Type_T ( Market VARCHAR2(6));
+
+create type CS_Company_T as Object (
+                                  Comp_ID NUMBER(1,0),
+                                  Comp_Name VARCHAR2(50),
+                                  Comp_Address ADRESSET,
+                                  Comp_Phone CS_PhoneList_T,
+                                  Comp_Fax CS_PhoneList_T,
+                                  Comp_Type CS_Company_Base_Type_T,
+                                  Comp_Shares CS_Share_List_T,
+                                  Comp_Directors CS_Director_List_T,
+                                  Comp_Managers CS_Manager_List_T,
+                                  Comp_Stores CS_Store_List_T);
+
+
+
+Erstellen Tabllen:
+------------------
+
+create table CS_Company of CS_Company_T
+nested table Comp_Phone store as Comp_Phone_NT
+nested table Comp_Fax store as Comp_Fax_NT
+nested table Comp_Shares store as Comp_Shares_NT
+nested table Comp_Directors store as Comp_Directors_NT
+nested table Comp_Managers store as Comp_Managers_NT
+nested table Comp_Stores store as Comp_Stores_NT (  nested table Store_Employees store as Store_Employees_NT
+                                                    nested table Store_Departments store as Store_Departments_NT
+                                                    nested table Store_Stock store as Store_Stock_NT);
+
+
+Beispielabfrage mit Typecast:
+-----------------------------
+
+Select v.emp_id, TREAT(VALUE(v) AS CS_FULLTIME_EMPLOYEE_T).Emp_Anual_Wage from CS_EMPLOYEE v;
 
