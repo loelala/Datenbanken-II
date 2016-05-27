@@ -43,7 +43,16 @@ create type CS_Employee_T as Object (
                                       Emp_ID VARCHAR2(6),
                                       Emp_Name VARCHAR(30),
                                       Emp_Addresse ADRESSET,
-                                      Emp_Phone VARCHAR2(10));
+                                      Emp_Phone VARCHAR2(10)) NOT FINAL;
+
+create type CS_FULLTIME_EMPLOYEE_T under CS_Employee_T (
+                                                          Emp_Anual_Wage NUMBER(10,2),
+                                                          Emp_Bonus NUMBER(10,2));
+
+create type CS_Parttime_Employee_T under CS_Employee_T (
+                                                          Emp_Weekly_Wage NUMBER(10,2));
+create type CS_Casual_Employee_T under CS_Employee_T (
+                                                        Emp_Hourly_Wage NUMBER(10,2));
 
 create type CS_Employees_List_T as table of REF CS_Employee_T;
 
@@ -53,7 +62,7 @@ create type CS_Department_T as Object (
                                         Dept_Name VARCHAR2(20),
                                         Dept_Head REF CS_Employee_T);
 
-create type CS_CS_Department_List_T as table of CS_Department_T;
+create type CS_Department_List_T as table of CS_Department_T;
                                
 
 create or replace type CS_Store_T as Object (  
@@ -63,7 +72,7 @@ create or replace type CS_Store_T as Object (
                                   Store_Phone VARCHAR(10),
                                   Store_Manager REF CS_Employee_T,
                                   Store_Employees CS_Employees_List_T,
-                                  Store_Departments CS_CS_Department_List_T);
+                                  Store_Departments CS_Department_List_T);
                                   
 create type CS_Store_List_T as Table of CS_Store_T;
 
@@ -78,3 +87,36 @@ create type CS_Company_T as Object (
                                   Comp_Directors CS_Director_List_T,
                                   Comp_Managers CS_Manager_List_T,
                                   Comp_Stores CS_Store_List_T);
+
+create type CS_Maker_T as Object (
+                                   Maker_ID VARCHAR2(3),
+                                   Maker_Name VARCHAR2(30),
+                                   Maker_Address ADRESSET,
+                                   Maker_Phone VARCHAR(10));
+
+create type CS_Item_T as Object (
+                                  Item_ID VARCHAR2(6),
+                                  Item_Name VARCHAR2(30),
+                                  Item_Desc VARCHAR2(128),
+                                  Item_Cost NUMBER(10,2),
+                                  Item_Price NUMBER(10,2),
+                                  Item_Maker REF CS_Maker_T);
+
+
+create type CS_Customer_T as Object (
+                                      Cust_ID VARCHAR2(5),
+                                      Cust_Name VARCHAR2(30),
+                                      Cust_Address ADRESSET,
+                                      Cust_Phone VARCHAR(10),
+                                      Cust_Gender VARCHAR(1),
+                                      Cust_DOB DATE,
+                                      Cust_Bonuspoints NUMBER(10,0));
+
+create or replace type CS_Transaction_T as Object (
+                                          Trans_ID NUMBER(10,0),
+                                          Trans_Date DATE,
+                                          Trans_Quantity NUMBER(10,0),
+                                          Trans_Customer REF CS_Customer_T,
+                                          Trans_Item REF CS_Item_T);
+
+
