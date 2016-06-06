@@ -1,0 +1,47 @@
+create table Geschlechter(
+  code INTEGER PRIMARY KEY,
+  beschreibung VARCHAR2(15)
+);
+
+insert into GESCHLECHTER Values(0,'unbekannt');
+insert into GESCHLECHTER Values(1,'weiblich');
+insert into GESCHLECHTER Values(2,'männlich');
+
+create table Berufe (
+  code Integer Primary Key,
+  bezeichnung VARCHAR2(50)
+);
+
+create table Zuordnung (
+  personalnummer INTEGER PRIMARY KEY,
+  herkunft Varchar2(20),
+  herkunft_key INTEGER 
+);
+
+create table Personal(
+  personalnummer INTEGER PRIMARY KEY,
+  p_name VARCHAR2(50),
+  p_vorname VARCHAR2(50),
+  p_alter INTEGER,
+  geschlecht INTEGER,
+  berufscode INTEGER,
+  einkommen INTEGER,
+  FOREIGN KEY (geschlecht) REFERENCES Geschlechter,
+  FOREIGN KEY (berufscode) REFERENCES Berufe
+);
+
+create table Angestellte (
+  an_nr INTEGER PRIMARY KEY,
+  an_name VARCHAR2(50),
+  geburtsdatum DATE,
+  berufsbezeichnung VARCHAR2(50),
+  monatsgehalt INTEGER,
+  geschlecht VARCHAR2(50)
+);
+
+create table Arbeiter (
+  ab_name VARCHAR2(50),
+  ab_vorname VARCHAR2(50),
+  geburtsdatum VARCHAR2(5),
+  studenlohn INTEGER 
+);

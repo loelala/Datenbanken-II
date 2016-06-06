@@ -1,0 +1,39 @@
+create or replace FUNCTION scaling 
+  (v NUMBER, min_value NUMBER, max_value NUMBER, new_min NUMBER, new_max NUMBER)
+RETURN NUMEBER
+IS 
+BEGIN
+	RETURN ((v - min_value) / (max_value - min_value)) * (new_max - new_min) + new_min;
+END;
+/
+
+// insert into new table SCALINGTABLE
+create or replace PROCEDURE calculateScaling
+  (min_new NUMBER, max_new NUMBER)
+  IS
+  min_old NUMBER;
+  BEGIN 
+  	SELECT Min(Zahlen) INTO min_old FROM Numbers;
+    INSERT INTO SCALINGTABLE (
+      SELECT SCALING(Zahlen, min_old, (SELECT MAX(Zahlen) FROM Numbers), min_new, max_new) 
+      FROM Numbers
+    );
+  END;
+  
+// insert into same table Numbers (override current data)
+  create or replace PROCEDURE calculateScaling
+  (min_new NUMBER, max_new NUMBER)
+  IS
+  min_old NUMBER;
+  BEGIN 
+  	SELECT Min(Zahlen) INTO min_old FROM Numbers;
+    UPDATE Numbers SET ZAHLEN  = SCALING (
+    	Zahlen, min_old, (SELECT MAX(Zahlen) FROM Numbers), min_new, max_new) 
+    );
+  END;
+  
+// Ausführung der Prozedur
+
+EXECUTE calculateScaling(0,10);
+
+ 
